@@ -1,0 +1,80 @@
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Teletubise</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="img/favicon.webp" type="image/x-icon" />
+  </head>
+  <body>
+    <h1>Gra Memory Teletubise</h1>
+    <div id="divTimer" class="divTimer">
+      <p class="timer">Czas: 00:00</p>
+      <p id="moveCounter" class="moveCounter">Ruchy: 0</p>
+    </div>
+    <div id="board-text">Kliknij przycisk rozpocznij grę</div>
+    <div id="board"></div>
+
+    <div class="div-btn" id="home-buttons">
+      <button id="startGame" onclick="startGame()">Rozpocznij grę</button>
+      <button id="showLeaderboard" onclick="toggleLeaderboard()">
+        Tabela wyników
+      </button>
+    </div>
+
+    <div class="div-btn" id="game-buttons" style="display: none">
+      <button onclick="resetGame()">Restartuj grę</button>
+      <button id="returnToHomePage" onclick="returnToHomePage()">
+        Powrót do strony głównej
+      </button>
+    </div>
+
+    <div id="winningModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Gratulacje!</h2>
+        <p>Udało Ci się odnaleźć wszystkie pary!</p>
+        <p id="finalTime">Twój czas: 00:00</p>
+        <p id="finalMoves">Ruchy: 0</p>
+        <button onclick="openNameModal()">Zapisz wynik</button>
+      </div>
+    </div>
+
+    <div id="leaderboardModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Najlepsze Wyniki</h2>
+        <table id="leaderboardTable">
+          <thead>
+            <tr>
+              <th>Pozycja</th>
+              <th>Imię</th>
+              <th>Czas</th>
+              <th>Ruchy</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div id="nameModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Wprowadź swoje imię</h2>
+        <input
+          type="text"
+          id="playerName"
+          placeholder="Twoje imię"
+          required
+        />
+        <button onclick="saveScore()">Zapisz wynik</button>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
