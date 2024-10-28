@@ -127,10 +127,10 @@ function checkForMatch() {
   }
 }
 
+
 function disableCards() {
   firstCard.removeEventListener("click", flipCards);
   secondCard.removeEventListener("click", flipCards);
-
   resetBoard();
   checkIfGameWon();
 }
