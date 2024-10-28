@@ -11,7 +11,13 @@
     <link rel="icon" href="img/favicon.webp" type="image/x-icon" />
   </head>
   <body>
-    <h1>Gra Memory Teletubise</h1>
+    <div id="purple-teletubbies" class="purple-teletubbies">
+      <img src="img/fioletowy.png" />
+    </div>
+    <div id="yellow-teletubbies" class="yellow-teletubbies">
+      <img src="img/zolta.png" />
+    </div>
+    <h1 id="title">Gra Memory Teletubise</h1>
     <div id="divTimer" class="divTimer">
       <p class="timer">Czas: 00:00</p>
       <p id="moveCounter" class="moveCounter">Ruchy: 0</p>
@@ -65,12 +71,7 @@
       <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
         <h2>Wprowadź swoje imię</h2>
-        <input
-          type="text"
-          id="playerName"
-          placeholder="Twoje imię"
-          required
-        />
+        <input type="text" id="playerName" placeholder="Twoje imię" required />
         <button onclick="saveScore()">Zapisz wynik</button>
       </div>
     </div>

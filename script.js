@@ -13,6 +13,9 @@ const nameModal = document.getElementById("nameModal");
 const finalTimeElement = document.getElementById("finalTime");
 const finalMovesElement = document.getElementById("finalMoves");
 const leaderboardTableBody = document.querySelector("#leaderboardTable tbody");
+const title = document.getElementById("title");
+const purpleTeletubbies = document.getElementById("purple-teletubbies");
+const yellowTeletubbies = document.getElementById("yellow-teletubbies");
 let timerInterval;
 let moves = 0;
 const cards = [
@@ -28,6 +31,7 @@ const cards = [
 
 returnToHomePageBtn.style.display = "none";
 gameButtons.style.display = "none";
+title.style.animation = "glow 4s ease infinite alternate";
 
 let lockBoard = false;
 let firstCard = null;
@@ -57,6 +61,7 @@ function startGame() {
     div.classList.add("card");
     div.dataset.background = background;
     div.dataset.index = index;
+    div.textContent = "?";
     div.addEventListener("click", flipCards);
     div.style.animation = `dealCard ${0.1 * index}s ease-out`;
     board.appendChild(div);
@@ -72,6 +77,9 @@ function showGameElements() {
   homeButtons.style.display = "none";
   gameButtons.style.display = "flex";
   board.style.display = "grid";
+  purpleTeletubbies.style.animation = "";
+  yellowTeletubbies.style.animation = "";
+  title.style.animation = "";
 }
 
 function returnToHomePage() {
@@ -80,6 +88,7 @@ function returnToHomePage() {
   homeButtons.style.display = "flex";
   gameButtons.style.display = "none";
   board.style.display = "none";
+  title.style.animation = "glow 4s ease infinite alternate";
 }
 
 function flipCards() {
@@ -90,6 +99,7 @@ function flipCards() {
 
   clickedCard.classList.add("flipped");
   clickedCard.style.backgroundImage = `url(${clickedCard.dataset.background})`;
+  clickedCard.textContent = "";
 
   if (!firstCard) {
     firstCard = clickedCard;
@@ -131,7 +141,8 @@ function unFlipCards() {
     secondCard.classList.remove("flipped");
     firstCard.style.backgroundImage = "";
     secondCard.style.backgroundImage = "";
-
+    firstCard.textContent = "?";
+    secondCard.textContent = "?";
     resetBoard();
   }, 1000);
 }
@@ -180,9 +191,12 @@ function showWinningModal(time, moves) {
 
 function triggerConfetti() {
   confetti({
-    particleCount: 150,
-    spread: 70,
+    particleCount: 300,
+    spread: 100,
     origin: { y: 0.6 },
+    shapes: ["star", "circle", "square"],
+    colors: ["#FF4DA6"],
+    scalar: 1.2,
   });
 }
 
