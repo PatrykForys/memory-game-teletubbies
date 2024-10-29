@@ -77,7 +77,7 @@ body {
   padding: clamp(15px, 3vw, 25px);
   background: linear-gradient(135deg, rgba(255, 192, 203, 0.7), rgba(147, 112, 219, 0.7));
   border-radius: 15px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 1);
   backdrop-filter: blur(10px);
   margin: 20px auto;
   animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -98,7 +98,7 @@ body {
 .card {
   width: 100%;
   aspect-ratio: 1;
-  font-size: clamp(1rem, 4vw, 1.5rem);
+  font-size: clamp(3rem, 3vw, 7rem);
   border-radius: clamp(8px, 2vw, 12px);
   border: min(3px, 0.5vw) solid rgba(255, 255, 255, 0.1);
   background-position: center;
@@ -107,9 +107,10 @@ body {
   align-items: center;
   justify-content: center;
   color: #ff0000;
+  font-weight: bold;
   cursor: pointer;
   background-color: rgba(255, 255, 0, 0.8);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 5s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -124,6 +125,7 @@ body {
 }
 
 .card.matched {
+  opacity: 0;
   transform: scale(0);
 }
 
